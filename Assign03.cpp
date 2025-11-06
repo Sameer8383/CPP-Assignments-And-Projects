@@ -224,7 +224,7 @@ void printFibonacciCheck()
 {
     cout << endl << "*************************************************************************" << endl;
     cout << endl << " Q5. Write a C++ function to check whether a given number is Fibonacci or not." << endl;
-    cout << endl << "*************************************************************************\n" << endl;
+    cout << endl << "*************************************************************************" << endl << endl;
 
     int num;
     cout << "Enter a number: ";
