@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
-
+// Assignment 02.
+// C++ Programs for Basic Functions
 float average(int a, int b, int c)
 {
     return (a + b + c) / 3.0f;
@@ -110,8 +111,15 @@ void printMaximum()
 int sumOfArray(int arr[], int size)
 {
     int sum = 0;
+
+    cout << "\n==> Sum of all " << size <<" elements is:\n";
+
     for (int i = 0; i < size; ++i)
     {
+        if(i != size-1)
+            cout << arr[i] << " + ";
+        else
+            cout << arr[i] << " = ";
         sum += arr[i];
     }
     return sum;
@@ -124,14 +132,14 @@ void printSumOfArray()
 
     int arr[10];
 
-    cout << "Enter " << 10 << " elements:" << endl;
+    cout << "Enter " << 10 << " elements: ";
     for (int i = 0; i < 10; ++i)
         cin >> arr[i];
 
     int sum = sumOfArray(arr, 10);
-    cout << "==> Sum of array elements is: " << sum << endl;
+    cout  << sum;
 
-    cout << "\n*************************************************************************" << endl;
+    cout << "\n\n*************************************************************************" << endl;
     cout << "                       End of Program 5th.                               " << endl;
     cout << "*************************************************************************\n" << endl;
 }
