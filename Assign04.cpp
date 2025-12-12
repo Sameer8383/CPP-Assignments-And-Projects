@@ -107,7 +107,7 @@ float area(float a, float b, float c)
      }
      else
      {
-          cout << "Invalid triangle sides!" << endl;
+          cout << "Invalid triangle sides!\n";
           return 0;
      }
 }
