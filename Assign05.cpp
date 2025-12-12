@@ -1,25 +1,42 @@
 #include <iostream>
+#include <cstring>
 using namespace std;
 
 // Function to sort array (ascending or descending)
 void sortArray(int arr[], int size, bool ascending = true)
 {
     int i, j, temp;
-    for (i = 0; i < size - 1; i++)
+    if (ascending)
     {
-        for (j = 0; j < size - 1 - i; j++)
+        cout << "\nAs per your choice, the array is sorted in Ascending Order: ";
+
+        for (i = 0; i < size - 1; i++)
         {
-            if (ascending && arr[j] > arr[j + 1])
+            for (j = 0; j < size - 1 - i; j++)
             {
-                temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
+                if (arr[j] > arr[j + 1])
+                {
+                    temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
             }
-            else if (!ascending && arr[j] < arr[j + 1])
+        }
+    }
+    else
+    {
+        cout << "\nAs per your choice, the array is sorted in Ascending Order: ";
+
+        for (i = 0; i < size - 1; i++)
+        {
+            for (j = 0; j < size - 1 - i; j++)
             {
-                temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
+                if (arr[j] < arr[j + 1])
+                {
+                    temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
             }
         }
     }
@@ -37,8 +54,8 @@ void printArray(int arr[], int size)
 void f1()
 {
     cout << "\n*************************************************************************\n";
-    cout << " Q1. Define a C++ functionto sort an array of integers in ascending or des-\n";
-    cout << "     -cending order depending on booltype argument (true for ascending and" << endl;
+    cout << " Q1. Define a C++ function to sort an array of integers in ascending or des-\n";
+    cout << "     -cending order depending on bool type argument (true for ascending and" << endl;
     cout << "      false for descending). Use default argument to implement it. \n";
     cout << "*************************************************************************\n\n";
 
@@ -52,51 +69,71 @@ void f1()
     for (int i = 0; i < n; i++)
         cin >> arr[i];
 
-    cout << endl;
-
-    cout << "Array Before Sorting     : ";
+    cout << "\nArray Before Sorting     : ";
     printArray(arr, n);
 
-    sortArray(arr, n);
-    cout << "Array in Ascending Order : ";
-    printArray(arr, n);
+    char choice[5];
+    bool ascending = true;
 
-    sortArray(arr, n, false);
-    cout << "Array in Descending Order: ";
+    cout << "\nSorting in Ascending Order (Yes/No)? ";
+    cin.ignore();
+    cin.getline(choice, 5);
+
+    if (strcmp(choice, "Yes") == 0 || strcmp(choice, "yes") == 0)
+        ascending = true;
+    else if (strcmp(choice, "No") == 0 || strcmp(choice, "no") == 0)
+        ascending = false;
+    else
+    {
+        cout << "Invalid choice! Defaulting to ascending.\n";
+        ascending = true;
+    }
+
+    sortArray(arr, n, ascending);
     printArray(arr, n);
 
     cout << "\n*************************************************************************\n";
     cout << "                         End of Program 1                                 \n";
     cout << "*************************************************************************\n\n";
 }
-
-#include <cstring>
-
 // Function to sort strings
 void sortStringArray(char str[][50], int size, bool ascending = true)
 {
     char temp[50];
 
-    for (int i = 0; i < size - 1; i++)
+    if (ascending)
     {
-        for (int j = 0; j < size - 1 - i; j++)
+        cout << "\nAs per your choice, the array is sorted in Ascending Order: ";
+        for (int i = 0; i < size - 1; i++)
         {
-            if (ascending && strcmp(str[j], str[j + 1]) > 0)
+            for (int j = 0; j < size - 1 - i; j++)
             {
-                strcpy(temp, str[j]);
-                strcpy(str[j], str[j + 1]);
-                strcpy(str[j + 1], temp);
+                if (strcmp(str[j], str[j + 1]) > 0)
+                {
+                    strcpy(temp, str[j]);
+                    strcpy(str[j], str[j + 1]);
+                    strcpy(str[j + 1], temp);
+                }
             }
-            else if (!ascending && strcmp(str[j], str[j + 1]) < 0)
+        }
+    }
+    else
+    {
+        cout << "\nAs per your choice, the array is sorted in Descending Order: ";
+        for (int i = 0; i < size - 1; i++)
+        {
+            for (int j = 0; j < size - 1 - i; j++)
             {
-                strcpy(temp, str[j]);
-                strcpy(str[j], str[j + 1]);
-                strcpy(str[j + 1], temp);
+                if (strcmp(str[j], str[j + 1]) < 0)
+                {
+                    strcpy(temp, str[j]);
+                    strcpy(str[j], str[j + 1]);
+                    strcpy(str[j + 1], temp);
+                }
             }
         }
     }
 }
-
 void printStringArray(char str[][50], int size)
 {
     for (int i = 0; i < size; i++)
@@ -121,24 +158,33 @@ void f2()
     for (int i = 0; i < n; i++)
         cin >> str[i];
 
-    cout << endl;
-
-    cout << "Array Before Sorting      : ";
+    cout << "\nArray Before Sorting      : ";
     printStringArray(str, n);
 
-    sortStringArray(str, n);
-    cout << "Array in Ascending Order  : ";
-    printStringArray(str, n);
+    char choice[5];
+    bool ascending = true;
 
-    sortStringArray(str, n, false);
-    cout << "Array in Descending Order : ";
+    cout << "\nSorting in Ascending Order (Yes/No)? ";
+    cin.ignore();
+    cin.getline(choice, 5);
+
+    if (strcmp(choice, "Yes") == 0 || strcmp(choice, "yes") == 0)
+        ascending = true;
+    else if (strcmp(choice, "No") == 0 || strcmp(choice, "no") == 0)
+        ascending = false;
+    else
+    {
+        cout << "Invalid choice! Defaulting to ascending.\n";
+        ascending = true;
+    }
+
+    sortStringArray(str, n, ascending);
     printStringArray(str, n);
 
     cout << "\n*************************************************************************\n";
     cout << "                         End of Program 2                                 \n";
     cout << "*************************************************************************\n\n";
 }
-
 // Rotate array
 void rotateArray(int arr[], int size, int d, int n)
 {
@@ -221,9 +267,8 @@ void printLcm(int a, int b, int c)
 void f4()
 {
     int a, b, c;
-
     cout << "\n*************************************************************************\n";
-    cout << " Q3. Define a C++ function to calculate LCM of three numbers.\n";
+    cout << " Q4. Define a C++ function to calculate LCM of three numbers.\n";
     cout << "*************************************************************************\n\n";
 
     cout << "Enter Value of a: ";
@@ -242,12 +287,12 @@ void f4()
 // Simple isPrime function without sqrt
 int isPrime(int n)
 {
-    for (int i = 2; i < n; i++)  
+    for (int i = 2; i < n; i++)
     {
         if (n % i == 0)
-            return 0;  
+            return 0;
     }
-    return 1;  
+    return 1;
 }
 void findAllPrimeFactors(int n)
 {
@@ -260,19 +305,20 @@ void findAllPrimeFactors(int n)
         {
             if (n % i == 0 && isPrime(i))
             {
-                cout << i << " ";  
-                while (n % i == 0) 
+                cout << i << " ";
+                while (n % i == 0)
                     n = n / i;
-                break;  
+                break;
             }
         }
     }
+    cout << "1";
     cout << endl;
 }
 void f5()
 {
     cout << "\n*************************************************************************\n";
-    cout << " Q3. Define a C++ function to print all the prime factors of a given number.\n";
+    cout << " Q5. Define a C++ function to print all the prime factors of a given number.\n";
     cout << "     [for example: num = 36, prime factors are 2, 3].\n";
     cout << "*************************************************************************\n\n";
 
