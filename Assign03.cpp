@@ -14,7 +14,7 @@ void printAllPrime(int num, int n)
         for (j = 1; j <= i; j++)
         {
             if (i % j == 0)
-                prime++;
+                prime+=1;
         }
         if (prime == 2)
             cout << i << " ";
