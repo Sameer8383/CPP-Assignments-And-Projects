@@ -20,7 +20,7 @@ void printHello() {
     int x = 1;
     do{
         cout <<endl;
-        x++;
+        x+=1;
     }
     while(x <= 3);
 }
