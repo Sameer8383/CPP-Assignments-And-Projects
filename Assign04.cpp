@@ -100,11 +100,17 @@ int area(int a, int b)
 
 float area(float a, float b, float c)
 {
-     float s = (a + b + c) / 2.0;
-     return sqrt(s * (s - a) * (s - b) * (s - c)); // Triangle
+     if (a + b > c && b + c > a && c + a > b)
+     {
+          float s = (a + b + c) / 2.0;
+          return sqrt(s * (s - a) * (s - b) * (s - c));
+     }
+     else
+     {
+          cout << "Invalid triangle sides!" << endl;
+          return 0;
+     }
 }
-
-// ------------------ Print Function -------------------
 void printAreaCalculations()
 {
      cout << "\n*************************************************************************\n";
@@ -119,12 +125,12 @@ void printAreaCalculations()
      cout << "Area of Circle: " << area(x) << " cm^2" << endl;
 
      // Rectangle
-     cout << "Enter length and breadth of the rectangle: ";
+     cout << "\nEnter length and breadth of the rectangle: ";
      cin >> x >> y;
      cout << "Area of Rectangle: " << area((int)x, (int)y) << " cm^2" << endl;
 
      // Triangle
-     cout << "Enter three sides of the triangle: ";
+     cout << "\nEnter three sides of the triangle: ";
      cin >> x >> y >> z;
      cout << "Area of Triangle: " << area(x, y, z) << " cm^2" << endl;
 
@@ -206,7 +212,7 @@ void printSumFunction()
      cout << "Sum (int + int): " << sum(a, b) << endl
           << endl;
 
-     cout << "Enter two floating-point numbers: ";1 2
+     cout << "Enter two floating-point numbers: ";
      cin >> x >> y;
      cout << "Sum (float + float): " << sum(x, y) << endl
           << endl;
@@ -230,8 +236,8 @@ int main()
      // printSwapValues();
      // printAdditionOf2or3Numbers();
      // printAreaCalculations();
-     // printMaxOf2Numbers();
-     printSumFunction();
+     printMaxOf2Numbers();
+     // printSumFunction();
      printf("\n");
      return 0;
 }
