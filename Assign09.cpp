@@ -93,7 +93,7 @@ Customer::Customer()
 Customer::Customer(int cust_id, string name, string email, string mobile)
 {
     this->cust_id = cust_id;
-    this->name = name;
+    this->name = name;  
     this->email = email;
     this->mobile = mobile;
 }
@@ -282,6 +282,8 @@ void f3()
     cout << "                         End of Program 3                                 \n";
     cout << "*************************************************************************\n\n";
 }
+/// @brief  
+/// @return
 class Book
 {
 private:
